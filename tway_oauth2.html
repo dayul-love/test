@@ -8,7 +8,7 @@
         <form name="frm" id="frm" method="POST" action="https://ibmsso.dhitech.co.kr/mga/sps/oauth/oauth20/authorize">
             <!-- 기본 설정 -->
             <input type="hidden" name="client_id" value="gwmobiletest"/>
-            <input type="hidden" name="redirect_uri" value="https://dayul-love.github.io/test/tway_oauth2.html"/>
+            <input type="hidden" name="redirect_uri" value="http://192.168.0.102:7880/ezmaru/sso/tway/oauth2.0/return"/>
             <input type="hidden" name="response_type" value="code"/>
             <input type="hidden" name="state" value=""/>
             <input type="hidden" name="scope" value=""/>
@@ -29,7 +29,8 @@
             document.getElementById('submitButton').addEventListener('click', function() {
                 var stateInput = document.querySelector("form#frm input[name='state']");
                 if (stateInput) {
-                    stateInput.value = generateRandomString();
+                    alert(stateInput.value);
+                    stateInput.value = generateRandomString(20);
                 }
                 alert(stateInput.value);
                 document.getElementById('frm').submit();
@@ -41,6 +42,7 @@
             let date = new Date();
             date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000));
             document.cookie = "PD-S-SESSION-ID=" + sessionId + "; expires=" + date.toUTCString() + "; path=/; domain=ibmsso.dhitech.co.kr; secure; SameSite=None";
+            console.log(sessionId);
             console.log(document.cookie);
         </script>
 </body>
