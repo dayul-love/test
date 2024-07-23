@@ -41,7 +41,7 @@
             let date = new Date();
             date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000));
             document.cookie = "PD-S-SESSION-ID=" + sessionId + "; expires=" + date.toUTCString() + "; path=/; domain=ibmsso.dhitech.co.kr; secure; SameSite=None";
-            alert(document.cookie);
+            console.log(document.cookie);
         </script>
 </body>
 </html>
