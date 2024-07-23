@@ -29,7 +29,6 @@
             document.getElementById('submitButton').addEventListener('click', function() {
                 var stateInput = document.querySelector("form#frm input[name='state']");
                 if (stateInput) {
-                    alert(stateInput.value);
                     stateInput.value = generateRandomString(20);
                 }
                 alert(stateInput.value);
@@ -41,9 +40,8 @@
             let sessionId = '1_2_0_appbasquX86JXl96rA4tvJOPv+2bhhDj36ZBsLwJ3RMtukEp';
             let date = new Date();
             date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000));
-            document.cookie = "PD-S-SESSION-ID=" + sessionId + "; expires=" + date.toUTCString() + "; path=/; domain=ibmsso.dhitech.co.kr; secure; SameSite=None";
-            console.log(sessionId);
-            console.log(document.cookie);
+            document.cookie = "PD-S-SESSION-ID=" + sessionId + ";"; //" expires=" + date.toUTCString() + "; path=/; domain=ibmsso.dhitech.co.kr; secure; SameSite=None";
+            alert(document.cookie);
         </script>
 </body>
 </html>
